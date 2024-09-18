@@ -25,20 +25,6 @@ const fragmentShader = `
 `;
 
 
-const Box = () => {
-    return (
-        <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <shaderMaterial
-                vertexShader={vertexShader}
-                fragmentShader={fragmentShader}
-                uniforms={{}}
-            />
-        </mesh>
-    );
-};
-
-
 function MyElement3D(){
 
     useFrame((state, delta)=>{
