@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 
-import MyElement3D from './MyElement3D'
+import Scene from './Scene'
 
 
 import './App.css'
@@ -16,7 +16,7 @@ function App() {
         position:[1, 1, 0]
       }
     }>
-        <MyElement3D />
+        <Scene />
      </Canvas>
     </>
   )

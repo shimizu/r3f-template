@@ -25,7 +25,7 @@ const fragmentShader = `
 `;
 
 
-function MyElement3D(){
+function Scene(){
 
     useFrame((state, delta)=>{
         const boxPivot = state.scene.getObjectByName("boxPivot");
@@ -65,4 +65,4 @@ function MyElement3D(){
     )
 }
 
-export default MyElement3D
+export default Scene
