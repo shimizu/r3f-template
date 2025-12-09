@@ -1,5 +1,4 @@
 import { Canvas } from '@react-three/fiber'
-import { getProject } from '@theatre/core'
 import { SheetProvider } from '@theatre/r3f'
 
 import Scene from './Scene'
@@ -7,9 +6,7 @@ import Scene from './Scene'
 
 import './App.css'
 
-const demoSheet = getProject('Demo Project').sheet('Demo Sheet')
-
-function App() {
+function App({ sheet }) {
 
   return (
     <>
@@ -17,7 +14,7 @@ function App() {
       shadows
       gl={{ preserveDrawingBuffer: true }}
     >
-        <SheetProvider sheet={demoSheet}>
+        <SheetProvider sheet={sheet}>
           <Scene />
         </SheetProvider>
      </Canvas>
@@ -26,3 +23,4 @@ function App() {
 }
 
 export default App
+
