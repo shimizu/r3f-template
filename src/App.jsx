@@ -1,10 +1,13 @@
-import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { getProject } from '@theatre/core'
+import { SheetProvider } from '@theatre/r3f'
 
 import Scene from './Scene'
 
 
 import './App.css'
+
+const demoSheet = getProject('Demo Project').sheet('Demo Sheet')
 
 function App() {
 
@@ -12,11 +15,11 @@ function App() {
     <>
      <Canvas 
       shadows
-      camera={{
-        position:[1, 1, 0]
-      }
-    }>
-        <Scene />
+      gl={{ preserveDrawingBuffer: true }}
+    >
+        <SheetProvider sheet={demoSheet}>
+          <Scene />
+        </SheetProvider>
      </Canvas>
     </>
   )

@@ -1,10 +1,6 @@
-import { useEffect } from "react"
-import { OrbitControls, RandomizedLight } from "@react-three/drei"
-import * as THREE from "three"
-import { useControls } from "leva"
-import { useFrame, useThree } from "@react-three/fiber";
+import { RandomizedLight } from "@react-three/drei"
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import chroma from 'chroma-js';
+import { editable as e, PerspectiveCamera } from '@theatre/r3f'
 
 
 
@@ -29,15 +25,9 @@ const fragmentShader = `
 
 function Scene(){
 
-    useFrame((state, delta)=>{
-        const boxPivot = state.scene.getObjectByName("boxPivot");
-        boxPivot.rotation.y += delta
-    })
-
     return (
         <>
-
-            <OrbitControls />
+            <PerspectiveCamera theatreKey="Camera" makeDefault position={[3, 3, 3]} fov={75} />
 
             <RandomizedLight />
 
@@ -51,17 +41,17 @@ function Scene(){
             </EffectComposer>
 
 
-            <group name="boxPivot">
-                <mesh>
+            <e.group theatreKey="Box Pivot">
+                <e.mesh theatreKey="Cube">
                     <boxGeometry args={[1, 1, 1]} />
                     <shaderMaterial
                         vertexShader={vertexShader}
                         fragmentShader={fragmentShader}
                         uniforms={{}}
                     />
-                </mesh>
+                </e.mesh>
 
-            </group>
+            </e.group>
                         
         </>
     )
