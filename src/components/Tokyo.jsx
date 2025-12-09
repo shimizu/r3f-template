@@ -13,8 +13,9 @@ export function Tokyo(props) {
         castShadow
         receiveShadow
         geometry={nodes.mesh_0.geometry}
-        material={nodes.mesh_0.material}
-      />
+      >
+        <meshStandardMaterial color="hotpink" />
+      </mesh>
       <mesh
         castShadow
         receiveShadow
