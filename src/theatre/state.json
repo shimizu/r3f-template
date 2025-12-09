@@ -1,0 +1,30 @@
+{
+  "sheetsById": {
+    "Demo Sheet": {
+      "staticOverrides": {
+        "byObject": {
+          "Camera": {
+            "near": 0.01,
+            "position": {
+              "x": -0.35230766927743007,
+              "y": 0.4379554356483168,
+              "z": 0.6219290195590417
+            },
+            "rotation": {
+              "y": -0.009999999999999865,
+              "x": -0.7700000000000002,
+              "z": 0.019999999999999997
+            },
+            "far": 2003.7,
+            "fov": 56.500000000000206
+          }
+        }
+      }
+    }
+  },
+  "definitionVersion": "0.4.0",
+  "revisionHistory": [
+    "fAeGj1I6zo5YKLoO",
+    "BlFTb2t7-IRS-JX3"
+  ]
+}
