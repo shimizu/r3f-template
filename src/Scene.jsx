@@ -3,24 +3,8 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { editable as e, PerspectiveCamera } from '@theatre/r3f'
 
 
+import { Tokyo } from "./components/Tokyo";
 
-
-const vertexShader = `
-  varying vec3 vPosition;
-  
-  void main() {
-    vPosition = position;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`;
-
-const fragmentShader = `
-  varying vec3 vPosition;
-
-  void main() {
-    gl_FragColor = vec4(abs(vPosition), 1.0); // シンプルな色の変化
-  }
-`;
 
 
 function Scene(){
@@ -29,6 +13,7 @@ function Scene(){
         <>
             <PerspectiveCamera theatreKey="Camera" makeDefault position={[3, 3, 3]} fov={75} />
 
+            <e.ambientLight theatreKey="AmbientLight" />
             <RandomizedLight />
 
             <EffectComposer>
@@ -41,16 +26,10 @@ function Scene(){
             </EffectComposer>
 
 
-            <e.group theatreKey="Box Pivot">
-                <e.mesh theatreKey="Cube">
-                    <boxGeometry args={[1, 1, 1]} />
-                    <shaderMaterial
-                        vertexShader={vertexShader}
-                        fragmentShader={fragmentShader}
-                        uniforms={{}}
-                    />
+            <e.group theatreKey="City Pivot">
+                <e.mesh theatreKey="tokyo">
+                  <Tokyo />
                 </e.mesh>
-
             </e.group>
                         
         </>
