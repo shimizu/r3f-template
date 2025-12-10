@@ -1,4 +1,4 @@
-import { Environment  } from "@react-three/drei"
+import { Environment,useEnvironment  } from "@react-three/drei"
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { editable as e, PerspectiveCamera } from '@theatre/r3f'
 
@@ -8,13 +8,16 @@ import { Tokyo } from "./components/Tokyo";
 
 
 function Scene(){
+    const envMap = useEnvironment({
+    files: './hdr/cedar_bridge_sunset_2_2k.hdr',
+    })
 
     return (
         <>
             <PerspectiveCamera theatreKey="Camera" makeDefault position={[3, 3, 3]} fov={75} />
 
             <e.ambientLight theatreKey="AmbientLight" />
-            <Environment preset="sunset" />
+            <Environment map={envMap} />
 
             <EffectComposer>
                 <Bloom

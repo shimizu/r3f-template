@@ -9,67 +9,90 @@ export function Tokyo(props) {
   const { nodes, materials } = useGLTF('./models/tokyo.gltf')
   return (
     <group {...props} dispose={null}>
-      <mesh
+      <mesh //land
         castShadow
         receiveShadow
         geometry={nodes.mesh_0.geometry}
       >
-        <meshStandardMaterial color="hotpink" />
+        <meshBasicMaterial color={0x333333} />
+
       </mesh>
-      <mesh
+      <mesh //park
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_1.geometry}
         material={nodes.mesh_0_1.material}
-      />
+      >
+
+      </mesh>
+      
+
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_2.geometry}
         material={nodes.mesh_0_2.material}
-      />
-      <mesh
+      >
+
+
+      </mesh>
+      <mesh //building
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_3.geometry}
-        material={nodes.mesh_0_3.material}
-      />
-      <mesh
+      >
+        <meshPhysicalMaterial roughness={0.1} ior={0.5} metalness={0} color={0x000000} />
+
+      </mesh>
+      
+      <mesh //small road
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_4.geometry}
-        material={nodes.mesh_0_4.material}
-      />
+      >
+        <meshStandardMaterial color={0x00ff00} />
+
+      </mesh>
+      
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_5.geometry}
-        material={nodes.mesh_0_5.material}
-      />
+      >
+        <meshStandardMaterial color={0xaaffaa} />
+      </mesh>
+      
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_6.geometry}
         material={nodes.mesh_0_6.material}
-      />
+      >
+      </mesh>
+      
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_7.geometry}
         material={nodes.mesh_0_7.material}
-      />
+      >
+      </mesh>
+
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_8.geometry}
         material={nodes.mesh_0_8.material}
-      />
+      >
+      </mesh>
+
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.mesh_0_9.geometry}
         material={nodes.mesh_0_9.material}
-      />
+      >
+      </mesh>
     </group>
   )
 }
